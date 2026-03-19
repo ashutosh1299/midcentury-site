@@ -21,8 +21,8 @@ html { font-size: 18px; scroll-behavior: smooth; }
 body { font-family: var(--serif); background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
 nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2.5rem; height: 62px; display: flex; align-items: center; justify-content: space-between; }
-.nav-left { display: flex; align-items: center; gap: 0.5rem; }
-.nav-logo-img { width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
+.nav-left { display: flex; align-items: center; gap: 0.6rem; }
+.nav-logo-img { width: 32px; height: 32px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
 .nav-wordmark { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
@@ -40,17 +40,14 @@ nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bott
 main { max-width: 680px; margin: 0 auto; padding: 5rem 2rem 8rem; }
 h1 { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; font-style: italic; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 2.5rem; }
 p { font-size: 1.05rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.4rem; }
-p:last-child { margin-bottom: 0; }
 p.muted { color: var(--mid); }
 hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
 .label { font-family: var(--sans); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); display: block; margin-bottom: 0.75rem; }
 a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
 a:hover { text-decoration-color: var(--mid); }
-.contact-block { margin-bottom: 2.5rem; }
-.contact-block:last-of-type { margin-bottom: 0; }
-.contact-email { font-family: var(--serif); font-size: clamp(1.3rem, 3vw, 1.8rem); font-style: italic; color: var(--ink); text-decoration: none; text-decoration-color: var(--rule); text-underline-offset: 4px; display: inline-block; margin-bottom: 0.4rem; }
-.contact-email:hover { text-decoration-color: var(--mid); }
-.contact-sub { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--faint); display: block; }
+
+.contact-btn { display: inline-block; margin-top: 0.5rem; font-family: var(--sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid rgba(30,28,24,0.3); padding: 0.65rem 1.4rem; border-radius: 3px; transition: border-color 0.2s, background 0.2s; }
+.contact-btn:hover { border-color: var(--ink); background: rgba(30,28,24,0.04); text-decoration: none; }
 
 footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
 .footer-left { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); letter-spacing: 0.06em; }
@@ -94,19 +91,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
 
   <p>We work directly with AI labs and research teams building frontier models. If you are looking for multimodal training data, evaluation frameworks, or want to discuss a custom data project, we would like to hear from you.</p>
 
-  <hr>
-
-  <div class="contact-block">
-    <span class="label">General enquiries</span>
-    <a href="/cdn-cgi/l/email-protection#264e434a4a49664b4f424543485253545f08474f" class="contact-email"><span class="__cf_email__" data-cfemail="076f626b6b68476a6e636462697372757e29666e">[email&#160;protected]</span></a>
-    <span class="contact-sub">For dataset access, partnerships, and general questions</span>
-  </div>
-
-  <div class="contact-block">
-    <span class="label">Data access</span>
-    <a href="/cdn-cgi/l/email-protection#2d494c594c6d4044494e484359585f54034c44" class="contact-email"><span class="__cf_email__" data-cfemail="fe9a9f8a9fbe93979a9d9b908a8b8c87d09f97">[email&#160;protected]</span></a>
-    <span class="contact-sub">To request access to a specific dataset or discuss licensing</span>
-  </div>
+  <a class="contact-btn" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#109;&#105;&#100;&#99;&#101;&#110;&#116;&#117;&#114;&#121;&#46;&#120;&#121;&#122;">Get in touch</a>
 
   <hr>
 
@@ -119,9 +104,23 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   <div class="footer-right"><a href="#">Terms</a><a href="#">Privacy</a></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   var burger = document.getElementById('burger');
   var drawer = document.getElementById('drawer');
   burger.addEventListener('click', function() {
-    var isOpen = drawer.classList.con
+    var isOpen = drawer.classList.contains('open');
+    drawer.classList.toggle('open', !isOpen);
+    burger.classList.toggle('open', !isOpen);
+  });
+  var links = drawer.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function() {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+    });
+  }
+});
+</script>
+</body>
+</html>
