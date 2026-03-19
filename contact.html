@@ -32,8 +32,8 @@ nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bott
 .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-.drawer { display: none; position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; }
-.drawer.open { display: flex; }
+.drawer { position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; display: flex; max-height: 0; overflow: hidden; transition: max-height 0.25s ease, padding 0.25s ease; }
+.drawer.open { max-height: 300px; padding: 1.5rem 2rem; }
 .drawer a { font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding: 0.25rem 0; }
 .drawer a:hover, .drawer a.active { color: var(--ink); }
 
@@ -98,13 +98,13 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
 
   <div class="contact-block">
     <span class="label">General enquiries</span>
-    <a href="mailto:hello@midcentury.ai" class="contact-email">hello@midcentury.ai</a>
+    <a href="/cdn-cgi/l/email-protection#264e434a4a49664b4f424543485253545f08474f" class="contact-email"><span class="__cf_email__" data-cfemail="076f626b6b68476a6e636462697372757e29666e">[email&#160;protected]</span></a>
     <span class="contact-sub">For dataset access, partnerships, and general questions</span>
   </div>
 
   <div class="contact-block">
     <span class="label">Data access</span>
-    <a href="mailto:data@midcentury.ai" class="contact-email">data@midcentury.ai</a>
+    <a href="/cdn-cgi/l/email-protection#2d494c594c6d4044494e484359585f54034c44" class="contact-email"><span class="__cf_email__" data-cfemail="fe9a9f8a9fbe93979a9d9b908a8b8c87d09f97">[email&#160;protected]</span></a>
     <span class="contact-sub">To request access to a specific dataset or discuss licensing</span>
   </div>
 
@@ -119,23 +119,9 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   <div class="footer-right"><a href="#">Terms</a><a href="#">Privacy</a></div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded', function() {
   var burger = document.getElementById('burger');
   var drawer = document.getElementById('drawer');
   burger.addEventListener('click', function() {
-    var isOpen = drawer.classList.contains('open');
-    drawer.classList.toggle('open', !isOpen);
-    burger.classList.toggle('open', !isOpen);
-  });
-  var links = drawer.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function() {
-      drawer.classList.remove('open');
-      burger.classList.remove('open');
-    });
-  }
-});
-</script>
-</body>
-</html>
+    var isOpen = drawer.classList.con
