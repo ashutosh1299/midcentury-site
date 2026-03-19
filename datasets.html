@@ -32,8 +32,8 @@ nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bott
 .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-.drawer { display: none; position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; }
-.drawer.open { display: flex; }
+.drawer { position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; display: flex; max-height: 0; overflow: hidden; transition: max-height 0.25s ease, padding 0.25s ease; }
+.drawer.open { max-height: 300px; padding: 1.5rem 2rem; }
 .drawer a { font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding: 0.25rem 0; }
 .drawer a:hover, .drawer a.active { color: var(--ink); }
 
@@ -127,7 +127,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
       <div class="stat-item"><span class="stat-num">30+</span><span class="stat-label">industrial environments</span></div>
       <div class="stat-item"><span class="stat-num">4K</span><span class="stat-label">resolution</span></div>
     </div>
-    <a href="mailto:hello@midcentury.ai?subject=Egocentric Industrial Vision Dataset" class="dataset-action">Request access &rarr;</a>
+    <a href="/cdn-cgi/l/email-protection#28404d4444476845414c4b4d465c5d5a51064941175b5d4a424d4b5c156d4f474b4d465c5a414b0861464c5d5b5c5a414944087e415b414746086c495c495b4d5c" class="dataset-action">Request access &rarr;</a>
   </div>
 
   <div class="dataset">
@@ -143,7 +143,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
       <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">languages</span></div>
       <div class="stat-item"><span class="stat-num">Multi</span><span class="stat-label">speaker formats</span></div>
     </div>
-    <a href="mailto:hello@midcentury.ai?subject=Conversational Voice Suite" class="dataset-action">Get access &rarr;</a>
+    <a href="/cdn-cgi/l/email-protection#472f222b2b28072a2e232422293332353e69262e783432252d2224337a0428293122353426332e2829262b6711282e24226714322e3322" class="dataset-action">Get access &rarr;</a>
   </div>
 
   <div class="dataset">
@@ -158,7 +158,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
       <div class="stat-item"><span class="stat-num">3D</span><span class="stat-label">ground truth</span></div>
       <div class="stat-item"><span class="stat-num">Multi</span><span class="stat-label">environment types</span></div>
     </div>
-    <a href="mailto:hello@midcentury.ai?subject=3D Gameplay Interaction Dataset" class="dataset-action">Request access &rarr;</a>
+    <a href="/cdn-cgi/l/email-protection#84ece1e8e8ebc4e9ede0e7e1eaf0f1f6fdaae5edbbf7f1e6eee1e7f0b9b7c0a4c3e5e9e1f4e8e5fda4cdeaf0e1f6e5e7f0edebeaa4c0e5f0e5f7e1f0" class="dataset-action">Request access &rarr;</a>
   </div>
 
   <div class="dataset">
@@ -169,7 +169,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
     <div class="dataset-tags"><span class="tag">Robotics</span><span class="tag">Manipulation</span><span class="tag">Dexterous Control</span></div>
     <p class="dataset-desc">A structured collection of dexterous manipulation demonstrations across tabletop, assembly, and unstructured environments. Paired teleoperation and autonomous rollouts with proprioceptive, visual, and force-torque streams. Built for imitation learning, sim-to-real transfer, and manipulation policy evaluation.</p>
     <p class="dataset-desc">Currently in collection. If you have specific requirements, we are taking input from prospective partners now.</p>
-    <a href="mailto:hello@midcentury.ai?subject=Robotics Manipulation Dataset" class="dataset-action">Express interest &rarr;</a>
+    <a href="/cdn-cgi/l/email-protection#f8909d949497b895919c9b9d968c8d8a81d69991c78b8d9a929d9b8cc5aa979a978c919b8bd8b5999691888d94998c919796d8bc998c998b9d8c" class="dataset-action">Express interest &rarr;</a>
   </div>
 
   <hr>
@@ -177,7 +177,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   <div class="cta-block">
     <span class="label">Custom data</span>
     <p>If none of the above is quite the right shape for what you are building, we design and collect custom datasets. Tell us what capability you are trying to develop and we will tell you what data would move the needle.</p>
-    <p><a href="mailto:hello@midcentury.ai">hello@midcentury.ai</a></p>
+    <p><a href="/cdn-cgi/l/email-protection#89e1ece5e5e6c9e4e0edeaece7fdfcfbf0a7e8e0"><span class="__cf_email__" data-cfemail="650d0009090a25080c0106000b1110171c4b040c">[email&#160;protected]</span></a></p>
   </div>
 </main>
 
@@ -186,23 +186,5 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   <div class="footer-right"><a href="#">Terms</a><a href="#">Privacy</a></div>
 </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var burger = document.getElementById('burger');
-  var drawer = document.getElementById('drawer');
-  burger.addEventListener('click', function() {
-    var isOpen = drawer.classList.contains('open');
-    drawer.classList.toggle('open', !isOpen);
-    burger.classList.toggle('open', !isOpen);
-  });
-  var links = drawer.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function() {
-      drawer.classList.remove('open');
-      burger.classList.remove('open');
-    });
-  }
-});
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+document.addEventListener('DOMContentLoaded', funct
