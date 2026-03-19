@@ -37,8 +37,8 @@ nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bott
 .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* DRAWER */
-.drawer { display: none; position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; }
-.drawer.open { display: flex; }
+.drawer { position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; display: flex; max-height: 0; overflow: hidden; transition: max-height 0.25s ease, padding 0.25s ease; }
+.drawer.open { max-height: 300px; padding: 1.5rem 2rem; }
 .drawer a { font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding: 0.25rem 0; }
 .drawer a:hover { color: var(--ink); }
 
@@ -138,7 +138,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   <p>If you are training frontier models and want access to data that actually reflects how the world works, we would like to hear from you.</p>
 
   <p class="contact-row">
-    <a href="mailto:hello@midcentury.ai">hello@midcentury.ai</a>
+    <a href="/cdn-cgi/l/email-protection#8be3eee7e7e4cbe6e2efe8eee5fffef9f2a5eae2"><span class="__cf_email__" data-cfemail="4a222f2626250a27232e292f243e3f3833642b23">[email&#160;protected]</span></a>
     <span class="contact-location">San Francisco, CA</span>
   </p>
 </main>
@@ -151,7 +151,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded', function() {
   var burger = document.getElementById('burger');
   var drawer = document.getElementById('drawer');
@@ -160,14 +160,4 @@ document.addEventListener('DOMContentLoaded', function() {
     drawer.classList.toggle('open', !isOpen);
     burger.classList.toggle('open', !isOpen);
   });
-  var links = drawer.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function() {
-      drawer.classList.remove('open');
-      burger.classList.remove('open');
-    });
-  }
-});
-</script>
-</body>
-</html>
+  var links = drawer
