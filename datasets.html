@@ -21,8 +21,8 @@ html { font-size: 18px; scroll-behavior: smooth; }
 body { font-family: var(--serif); background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
 nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2.5rem; height: 62px; display: flex; align-items: center; justify-content: space-between; }
-.nav-left { display: flex; align-items: center; gap: 0.5rem; }
-.nav-logo-img { width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
+.nav-left { display: flex; align-items: center; gap: 0.6rem; }
+.nav-logo-img { width: 32px; height: 32px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
 .nav-wordmark { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
@@ -41,6 +41,7 @@ main { max-width: 680px; margin: 0 auto; padding: 5rem 2rem 8rem; }
 .page-header { margin-bottom: 3.5rem; }
 .page-header h1 { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; font-style: italic; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 1rem; }
 .page-header p { font-size: 1.02rem; line-height: 1.78; color: var(--mid); }
+
 p { font-size: 1.02rem; line-height: 1.8; color: var(--ink); margin-bottom: 1.2rem; }
 p:last-child { margin-bottom: 0; }
 hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
@@ -48,23 +49,16 @@ hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
 a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
 a:hover { text-decoration-color: var(--mid); }
 
+/* DATASET — stripped down */
 .dataset { padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
 .dataset:first-of-type { border-top: 1px solid var(--rule); }
-.dataset-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.85rem; flex-wrap: wrap; }
-.dataset-name { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.2; }
-.badge { font-family: var(--sans); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
-.badge-available { color: #4a7a4a; }
-.badge-request { color: var(--mid); }
-.badge-soon { color: var(--faint); }
-.dataset-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-.tag { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--rule); border-radius: 2px; padding: 0.2rem 0.5rem; }
+.dataset-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.2; margin-bottom: 1rem; display: block; }
 .dataset-desc { font-size: 1.02rem; line-height: 1.8; color: var(--ink); margin-bottom: 0.9rem; }
 .dataset-stats { display: flex; gap: 2.5rem; margin-top: 1.25rem; flex-wrap: wrap; }
 .stat-item { display: flex; flex-direction: column; gap: 0.15rem; }
 .stat-num { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
 .stat-label { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
-.dataset-action { display: inline-block; margin-top: 1.5rem; font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
-.dataset-action:hover { color: var(--mid); border-color: var(--mid); }
+
 .cta-block { padding-top: 0.5rem; }
 .cta-block p { color: var(--mid); font-style: italic; margin-bottom: 1rem; }
 
@@ -74,6 +68,9 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
 .footer-right a { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); text-decoration: none; letter-spacing: 0.06em; }
 .footer-right a:hover { color: var(--ink); }
 
+.contact-btn { display: inline-block; margin-top: 0.25rem; font-family: var(--sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid rgba(30,28,24,0.3); padding: 0.65rem 1.4rem; border-radius: 3px; transition: border-color 0.2s, background 0.2s; }
+.contact-btn:hover { border-color: var(--ink); background: rgba(30,28,24,0.04); text-decoration: none; }
+
 @media (max-width: 640px) {
   html { font-size: 16px; }
   nav { padding: 0 1.25rem; }
@@ -81,7 +78,6 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   .burger { display: flex; }
   main { padding: 3rem 1.25rem 6rem; }
   .page-header { margin-bottom: 2.5rem; }
-  .dataset-meta { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
   .dataset-stats { gap: 1.5rem; }
   footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
 }
@@ -111,15 +107,11 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
 <main>
   <div class="page-header">
     <h1>Datasets</h1>
-    <p>Each dataset we release is shaped by a research thesis about where model capabilities are heading — not assembled opportunistically. Below is what is available now and what is coming.</p>
+    <p>Each dataset we release is shaped by a research thesis about where model capabilities are heading — not assembled opportunistically.</p>
   </div>
 
   <div class="dataset">
-    <div class="dataset-meta">
-      <span class="dataset-name">Egocentric Industrial Vision</span>
-      <span class="badge badge-request">Available on request</span>
-    </div>
-    <div class="dataset-tags"><span class="tag">Vision</span><span class="tag">Egocentric</span><span class="tag">Embodied AI</span><span class="tag">World Models</span></div>
+    <span class="dataset-name">Egocentric Industrial Vision</span>
     <p class="dataset-desc">One of the largest available first-person industrial datasets. Recorded across real manufacturing, logistics, and field service environments — the kind of data that teaches models how people actually move through and manipulate the world.</p>
     <p class="dataset-desc">Annotated with task boundaries, hand-object interaction labels, environment metadata, and gaze proxies. Designed for training embodied agents, world models, and long-horizon planning systems.</p>
     <div class="dataset-stats">
@@ -127,15 +119,10 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
       <div class="stat-item"><span class="stat-num">30+</span><span class="stat-label">industrial environments</span></div>
       <div class="stat-item"><span class="stat-num">4K</span><span class="stat-label">resolution</span></div>
     </div>
-    <a href="/cdn-cgi/l/email-protection#28404d4444476845414c4b4d465c5d5a51064941175b5d4a424d4b5c156d4f474b4d465c5a414b0861464c5d5b5c5a414944087e415b414746086c495c495b4d5c" class="dataset-action">Request access &rarr;</a>
   </div>
 
   <div class="dataset">
-    <div class="dataset-meta">
-      <span class="dataset-name">Conversational Voice Suite</span>
-      <span class="badge badge-available">Available now</span>
-    </div>
-    <div class="dataset-tags"><span class="tag">Audio</span><span class="tag">Multilingual</span><span class="tag">Dialogue</span><span class="tag">Voice AI</span></div>
+    <span class="dataset-name">Conversational Voice Suite</span>
     <p class="dataset-desc">A large-scale collection of natural, multi-speaker conversational audio spanning languages that are chronically underrepresented in frontier model training. Every recording is paired with dialect metadata, speaker diarization, and transcription.</p>
     <p class="dataset-desc">Languages include Hindi, Arabic, Finnish, and others. Structured for conversational AI training, ASR fine-tuning, TTS voice modeling, and dialogue system evaluation.</p>
     <div class="dataset-stats">
@@ -143,41 +130,30 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
       <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">languages</span></div>
       <div class="stat-item"><span class="stat-num">Multi</span><span class="stat-label">speaker formats</span></div>
     </div>
-    <a href="/cdn-cgi/l/email-protection#472f222b2b28072a2e232422293332353e69262e783432252d2224337a0428293122353426332e2829262b6711282e24226714322e3322" class="dataset-action">Get access &rarr;</a>
   </div>
 
   <div class="dataset">
-    <div class="dataset-meta">
-      <span class="dataset-name">3D Gameplay Interaction</span>
-      <span class="badge badge-request">Available on request</span>
-    </div>
-    <div class="dataset-tags"><span class="tag">3D</span><span class="tag">Gameplay</span><span class="tag">Interaction</span><span class="tag">Spatial Reasoning</span></div>
+    <span class="dataset-name">3D Gameplay Interaction</span>
     <p class="dataset-desc">Licensed in partnership with several leading AAA game studios — physically consistent 3D worlds with perfect ground truth at impossible-to-replicate scale. Designed for training spatial reasoning, physics intuition, and interaction priors for embodied agents and world models.</p>
     <div class="dataset-stats">
       <div class="stat-item"><span class="stat-num">AAA</span><span class="stat-label">studio partners</span></div>
       <div class="stat-item"><span class="stat-num">3D</span><span class="stat-label">ground truth</span></div>
       <div class="stat-item"><span class="stat-num">Multi</span><span class="stat-label">environment types</span></div>
     </div>
-    <a href="/cdn-cgi/l/email-protection#84ece1e8e8ebc4e9ede0e7e1eaf0f1f6fdaae5edbbf7f1e6eee1e7f0b9b7c0a4c3e5e9e1f4e8e5fda4cdeaf0e1f6e5e7f0edebeaa4c0e5f0e5f7e1f0" class="dataset-action">Request access &rarr;</a>
   </div>
 
   <div class="dataset">
-    <div class="dataset-meta">
-      <span class="dataset-name">Robotics Manipulation</span>
-      <span class="badge badge-soon">Coming soon</span>
-    </div>
-    <div class="dataset-tags"><span class="tag">Robotics</span><span class="tag">Manipulation</span><span class="tag">Dexterous Control</span></div>
+    <span class="dataset-name">Robotics Manipulation</span>
     <p class="dataset-desc">A structured collection of dexterous manipulation demonstrations across tabletop, assembly, and unstructured environments. Paired teleoperation and autonomous rollouts with proprioceptive, visual, and force-torque streams. Built for imitation learning, sim-to-real transfer, and manipulation policy evaluation.</p>
     <p class="dataset-desc">Currently in collection. If you have specific requirements, we are taking input from prospective partners now.</p>
-    <a href="/cdn-cgi/l/email-protection#f8909d949497b895919c9b9d968c8d8a81d69991c78b8d9a929d9b8cc5aa979a978c919b8bd8b5999691888d94998c919796d8bc998c998b9d8c" class="dataset-action">Express interest &rarr;</a>
   </div>
 
   <hr>
 
   <div class="cta-block">
     <span class="label">Custom data</span>
-    <p>If none of the above is quite the right shape for what you are building, we design and collect custom datasets. Tell us what capability you are trying to develop and we will tell you what data would move the needle.</p>
-    <p><a href="/cdn-cgi/l/email-protection#89e1ece5e5e6c9e4e0edeaece7fdfcfbf0a7e8e0"><span class="__cf_email__" data-cfemail="650d0009090a25080c0106000b1110171c4b040c">[email&#160;protected]</span></a></p>
+    <p>If none of the above fits what you are building, we design and collect custom datasets. Tell us what capability you are trying to develop.</p>
+    <a class="contact-btn" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#109;&#105;&#100;&#99;&#101;&#110;&#116;&#117;&#114;&#121;&#46;&#120;&#121;&#122;">Get in touch</a>
   </div>
 </main>
 
@@ -186,5 +162,23 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   <div class="footer-right"><a href="#">Terms</a><a href="#">Privacy</a></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-document.addEventListener('DOMContentLoaded', funct
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  burger.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    drawer.classList.toggle('open', !isOpen);
+    burger.classList.toggle('open', !isOpen);
+  });
+  var links = drawer.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function() {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+    });
+  }
+});
+</script>
+</body>
+</html>
