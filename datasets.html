@@ -20,7 +20,6 @@
 html { font-size: 18px; scroll-behavior: smooth; }
 body { font-family: var(--serif); background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
-/* NAV */
 nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2.5rem; height: 62px; display: flex; align-items: center; justify-content: space-between; }
 .nav-left { display: flex; align-items: center; gap: 0.5rem; }
 .nav-logo-img { width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
@@ -28,25 +27,20 @@ nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bott
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
 .nav-links a:hover, .nav-links a.active { color: var(--ink); }
-.burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 4px; }
-.burger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: all 0.2s; transform-origin: center; }
+.burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 10px; -webkit-tap-highlight-color: transparent; }
+.burger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.22s, opacity 0.22s; transform-origin: center; pointer-events: none; }
 .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-.drawer { display: none; position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
+.drawer { display: none; position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; }
 .drawer.open { display: flex; }
-.drawer a { font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; }
+.drawer a { font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding: 0.25rem 0; }
 .drawer a:hover, .drawer a.active { color: var(--ink); }
 
-/* LAYOUT */
 main { max-width: 680px; margin: 0 auto; padding: 5rem 2rem 8rem; }
-
-/* PAGE HEADER */
 .page-header { margin-bottom: 3.5rem; }
 .page-header h1 { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; font-style: italic; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 1rem; }
 .page-header p { font-size: 1.02rem; line-height: 1.78; color: var(--mid); }
-
-/* BASE TYPE */
 p { font-size: 1.02rem; line-height: 1.8; color: var(--ink); margin-bottom: 1.2rem; }
 p:last-child { margin-bottom: 0; }
 hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
@@ -54,7 +48,6 @@ hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
 a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
 a:hover { text-decoration-color: var(--mid); }
 
-/* DATASET ENTRY */
 .dataset { padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
 .dataset:first-of-type { border-top: 1px solid var(--rule); }
 .dataset-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.85rem; flex-wrap: wrap; }
@@ -64,28 +57,23 @@ a:hover { text-decoration-color: var(--mid); }
 .badge-request { color: var(--mid); }
 .badge-soon { color: var(--faint); }
 .dataset-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-.tag { font-family: var(--sans); font-size: 0.62rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--rule); border-radius: 2px; padding: 0.2rem 0.5rem; }
+.tag { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--rule); border-radius: 2px; padding: 0.2rem 0.5rem; }
 .dataset-desc { font-size: 1.02rem; line-height: 1.8; color: var(--ink); margin-bottom: 0.9rem; }
 .dataset-stats { display: flex; gap: 2.5rem; margin-top: 1.25rem; flex-wrap: wrap; }
 .stat-item { display: flex; flex-direction: column; gap: 0.15rem; }
 .stat-num { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
-.stat-label { font-family: var(--sans); font-size: 0.62rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
+.stat-label { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
 .dataset-action { display: inline-block; margin-top: 1.5rem; font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
 .dataset-action:hover { color: var(--mid); border-color: var(--mid); }
-
-/* CTA */
 .cta-block { padding-top: 0.5rem; }
 .cta-block p { color: var(--mid); font-style: italic; margin-bottom: 1rem; }
-.cta-block p:last-child { margin-bottom: 0; }
 
-/* FOOTER */
 footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
 .footer-left { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); letter-spacing: 0.06em; }
 .footer-right { display: flex; gap: 1.5rem; }
-.footer-right a { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+.footer-right a { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); text-decoration: none; letter-spacing: 0.06em; }
 .footer-right a:hover { color: var(--ink); }
 
-/* MOBILE */
 @media (max-width: 640px) {
   html { font-size: 16px; }
   nav { padding: 0 1.25rem; }
@@ -110,14 +98,14 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
     <li><a href="datasets.html" class="active">Datasets</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="burger" aria-label="Menu" onclick="toggleMenu(this)">
+  <button class="burger" id="burger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="drawer" id="drawer">
-  <a href="datasets.html" class="active" onclick="closeMenu()">Datasets</a>
-  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="datasets.html" class="active">Datasets</a>
+  <a href="contact.html">Contact</a>
 </div>
 
 <main>
@@ -126,113 +114,62 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
     <p>Each dataset we release is shaped by a research thesis about where model capabilities are heading — not assembled opportunistically. Below is what is available now and what is coming.</p>
   </div>
 
-  <!-- 1. Egocentric Industrial Vision -->
   <div class="dataset">
     <div class="dataset-meta">
       <span class="dataset-name">Egocentric Industrial Vision</span>
       <span class="badge badge-request">Available on request</span>
     </div>
-    <div class="dataset-tags">
-      <span class="tag">Vision</span>
-      <span class="tag">Egocentric</span>
-      <span class="tag">Embodied AI</span>
-      <span class="tag">World Models</span>
-    </div>
-    <p class="dataset-desc">One of the largest available first-person industrial datasets. Recorded across real manufacturing, logistics, and field service environments, this collection captures the continuous, unscripted nature of skilled physical work — the kind of data that teaches models how people actually move through and manipulate the world.</p>
-    <p class="dataset-desc">Annotated with task boundaries, hand-object interaction labels, environment metadata, and gaze proxies. Designed for training and evaluating embodied agents, world models, and long-horizon planning systems.</p>
+    <div class="dataset-tags"><span class="tag">Vision</span><span class="tag">Egocentric</span><span class="tag">Embodied AI</span><span class="tag">World Models</span></div>
+    <p class="dataset-desc">One of the largest available first-person industrial datasets. Recorded across real manufacturing, logistics, and field service environments — the kind of data that teaches models how people actually move through and manipulate the world.</p>
+    <p class="dataset-desc">Annotated with task boundaries, hand-object interaction labels, environment metadata, and gaze proxies. Designed for training embodied agents, world models, and long-horizon planning systems.</p>
     <div class="dataset-stats">
-      <div class="stat-item">
-        <span class="stat-num">1M+</span>
-        <span class="stat-label">hours of footage</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">30+</span>
-        <span class="stat-label">industrial environments</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">4K</span>
-        <span class="stat-label">resolution</span>
-      </div>
+      <div class="stat-item"><span class="stat-num">1M+</span><span class="stat-label">hours of footage</span></div>
+      <div class="stat-item"><span class="stat-num">30+</span><span class="stat-label">industrial environments</span></div>
+      <div class="stat-item"><span class="stat-num">4K</span><span class="stat-label">resolution</span></div>
     </div>
-    <a href="/cdn-cgi/l/email-protection#08606d6464674865616c6b6d667c7d7a71266961377b7d6a626d6b7c354d6f676b6d667c7a616b2841666c7d7b7c7a616964285e617b616766284c697c697b6d7c" class="dataset-action">Request access →</a>
+    <a href="mailto:hello@midcentury.ai?subject=Egocentric Industrial Vision Dataset" class="dataset-action">Request access &rarr;</a>
   </div>
 
-  <!-- 2. Conversational Voice Suite -->
   <div class="dataset">
     <div class="dataset-meta">
       <span class="dataset-name">Conversational Voice Suite</span>
       <span class="badge badge-available">Available now</span>
     </div>
-    <div class="dataset-tags">
-      <span class="tag">Audio</span>
-      <span class="tag">Multilingual</span>
-      <span class="tag">Dialogue</span>
-      <span class="tag">Voice AI</span>
-    </div>
+    <div class="dataset-tags"><span class="tag">Audio</span><span class="tag">Multilingual</span><span class="tag">Dialogue</span><span class="tag">Voice AI</span></div>
     <p class="dataset-desc">A large-scale collection of natural, multi-speaker conversational audio spanning languages that are chronically underrepresented in frontier model training. Every recording is paired with dialect metadata, speaker diarization, and transcription.</p>
     <p class="dataset-desc">Languages include Hindi, Arabic, Finnish, and others. Structured for conversational AI training, ASR fine-tuning, TTS voice modeling, and dialogue system evaluation.</p>
     <div class="dataset-stats">
-      <div class="stat-item">
-        <span class="stat-num">10k+</span>
-        <span class="stat-label">hours of audio</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">5+</span>
-        <span class="stat-label">languages</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">Multi</span>
-        <span class="stat-label">speaker formats</span>
-      </div>
+      <div class="stat-item"><span class="stat-num">10k+</span><span class="stat-label">hours of audio</span></div>
+      <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">languages</span></div>
+      <div class="stat-item"><span class="stat-num">Multi</span><span class="stat-label">speaker formats</span></div>
     </div>
-    <a href="/cdn-cgi/l/email-protection#8be3eee7e7e4cbe6e2efe8eee5fffef9f2a5eae2b4f8fee9e1eee8ffb6c8e4e5fdeef9f8eaffe2e4e5eae7abdde4e2e8eeabd8fee2ffee" class="dataset-action">Get access →</a>
+    <a href="mailto:hello@midcentury.ai?subject=Conversational Voice Suite" class="dataset-action">Get access &rarr;</a>
   </div>
 
-  <!-- 3. 3D Gameplay Interaction -->
   <div class="dataset">
     <div class="dataset-meta">
       <span class="dataset-name">3D Gameplay Interaction</span>
       <span class="badge badge-request">Available on request</span>
     </div>
-    <div class="dataset-tags">
-      <span class="tag">3D</span>
-      <span class="tag">Gameplay</span>
-      <span class="tag">Interaction</span>
-      <span class="tag">Spatial Reasoning</span>
-    </div>
-    <p class="dataset-desc">Licensed in partnership with several leading AAA game studios, this dataset captures high-fidelity 3D interaction, navigation, and object manipulation across richly detailed virtual environments — physically consistent 3D worlds with perfect ground truth at impossible-to-replicate scale.</p>
-    <p class="dataset-desc">Designed for training spatial reasoning, physics intuition, and interaction priors for embodied agents and world models. Includes action traces, environment state, and object relationship graphs.</p>
+    <div class="dataset-tags"><span class="tag">3D</span><span class="tag">Gameplay</span><span class="tag">Interaction</span><span class="tag">Spatial Reasoning</span></div>
+    <p class="dataset-desc">Licensed in partnership with several leading AAA game studios — physically consistent 3D worlds with perfect ground truth at impossible-to-replicate scale. Designed for training spatial reasoning, physics intuition, and interaction priors for embodied agents and world models.</p>
     <div class="dataset-stats">
-      <div class="stat-item">
-        <span class="stat-num">AAA</span>
-        <span class="stat-label">studio partners</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">3D</span>
-        <span class="stat-label">ground truth</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">Multi</span>
-        <span class="stat-label">environment types</span>
-      </div>
+      <div class="stat-item"><span class="stat-num">AAA</span><span class="stat-label">studio partners</span></div>
+      <div class="stat-item"><span class="stat-num">3D</span><span class="stat-label">ground truth</span></div>
+      <div class="stat-item"><span class="stat-num">Multi</span><span class="stat-label">environment types</span></div>
     </div>
-    <a href="/cdn-cgi/l/email-protection#93fbf6fffffcd3fefaf7f0f6fde7e6e1eabdf2faace0e6f1f9f6f0e7aea0d7b3d4f2fef6e3fff2eab3dafde7f6e1f2f0e7fafcfdb3d7f2e7f2e0f6e7" class="dataset-action">Request access →</a>
+    <a href="mailto:hello@midcentury.ai?subject=3D Gameplay Interaction Dataset" class="dataset-action">Request access &rarr;</a>
   </div>
 
-  <!-- 4. Robotics Manipulation -->
   <div class="dataset">
     <div class="dataset-meta">
       <span class="dataset-name">Robotics Manipulation</span>
       <span class="badge badge-soon">Coming soon</span>
     </div>
-    <div class="dataset-tags">
-      <span class="tag">Robotics</span>
-      <span class="tag">Manipulation</span>
-      <span class="tag">Dexterous Control</span>
-    </div>
+    <div class="dataset-tags"><span class="tag">Robotics</span><span class="tag">Manipulation</span><span class="tag">Dexterous Control</span></div>
     <p class="dataset-desc">A structured collection of dexterous manipulation demonstrations across tabletop, assembly, and unstructured environments. Paired teleoperation and autonomous rollouts with proprioceptive, visual, and force-torque streams. Built for imitation learning, sim-to-real transfer, and manipulation policy evaluation.</p>
-    <p class="dataset-desc">Currently in collection. If you have specific requirements for manipulation tasks, object categories, or environment types, we are taking input from prospective partners now.</p>
-    <a href="/cdn-cgi/l/email-protection#8de5e8e1e1e2cde0e4e9eee8e3f9f8fff4a3ece4b2fef8efe7e8eef9b0dfe2efe2f9e4eefeadc0ece3e4fdf8e1ecf9e4e2e3adc9ecf9ecfee8f9" class="dataset-action">Express interest →</a>
+    <p class="dataset-desc">Currently in collection. If you have specific requirements, we are taking input from prospective partners now.</p>
+    <a href="mailto:hello@midcentury.ai?subject=Robotics Manipulation Dataset" class="dataset-action">Express interest &rarr;</a>
   </div>
 
   <hr>
@@ -240,9 +177,32 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   <div class="cta-block">
     <span class="label">Custom data</span>
     <p>If none of the above is quite the right shape for what you are building, we design and collect custom datasets. Tell us what capability you are trying to develop and we will tell you what data would move the needle.</p>
-    <p><a href="/cdn-cgi/l/email-protection#fe969b929291be93979a9d9b908a8b8c87d09f97"><span class="__cf_email__" data-cfemail="bcd4d9d0d0d3fcd1d5d8dfd9d2c8c9cec592ddd5">[email&#160;protected]</span></a></p>
+    <p><a href="mailto:hello@midcentury.ai">hello@midcentury.ai</a></p>
   </div>
 </main>
 
 <footer>
-  <
+  <span class="footer-left">&#169; 2026 Midcentury</span>
+  <div class="footer-right"><a href="#">Terms</a><a href="#">Privacy</a></div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  burger.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    drawer.classList.toggle('open', !isOpen);
+    burger.classList.toggle('open', !isOpen);
+  });
+  var links = drawer.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function() {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+    });
+  }
+});
+</script>
+</body>
+</html>
