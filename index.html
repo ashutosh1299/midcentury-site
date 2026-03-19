@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midcentury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:    #edeae3;
+  --ink:   #1e1c18;
+  --mid:   #6b6760;
+  --faint: #9e9b95;
+  --rule:  rgba(30,28,24,0.12);
+  --serif: 'EB Garamond', Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+}
+html { font-size: 18px; scroll-behavior: smooth; }
+body { font-family: var(--serif); background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 2.5rem;
+  height: 62px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-left { display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo-img { width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
+.nav-wordmark { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+/* HAMBURGER */
+.burger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 4px;
+}
+.burger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: all 0.2s; transform-origin: center; }
+.burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* MOBILE DRAWER */
+.drawer {
+  display: none; position: fixed;
+  top: 62px; left: 0; right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem 2rem;
+  flex-direction: column; gap: 1.25rem;
+  z-index: 99;
+}
+.drawer.open { display: flex; }
+.drawer a { font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
+.drawer a:hover { color: var(--ink); }
+
+/* MAIN */
+main { max-width: 680px; margin: 0 auto; padding: 5rem 2rem 8rem; }
+
+
+
+/* TYPE */
+p { font-size: 1.05rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.4rem; }
+p:last-child { margin-bottom: 0; }
+p.large { font-size: 1.18rem; line-height: 1.75; }
+p.muted { color: var(--mid); font-style: italic; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
+.label { font-family: var(--sans); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); display: block; margin-bottom: 0.75rem; }
+ul.dash { list-style: none; padding: 0; margin-bottom: 1.4rem; }
+ul.dash li { font-size: 1.05rem; line-height: 1.82; color: var(--ink); padding-left: 1.4em; position: relative; margin-bottom: 0.4rem; }
+ul.dash li::before { content: '—'; position: absolute; left: 0; color: var(--faint); }
+a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
+a:hover { text-decoration-color: var(--mid); }
+em { font-style: italic; }
+
+/* CONTACT */
+.contact-row { display: flex; align-items: baseline; gap: 2rem; flex-wrap: wrap; }
+.contact-location { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--faint); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+.footer-left { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); letter-spacing: 0.06em; }
+.footer-right { display: flex; gap: 1.5rem; }
+.footer-right a { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+.footer-right a:hover { color: var(--ink); }
+
+/* MOBILE */
+@media (max-width: 640px) {
+  html { font-size: 16px; }
+  nav { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  main { padding: 3rem 1.25rem 6rem; }
+  p.large { font-size: 1.08rem; }
+  footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
+  .contact-row { flex-direction: column; gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <img class="nav-logo-img" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAFwAXMDASIAAhEBAxEB/8QAHQABAQADAAMBAQAAAAAAAAAAAAgGBwkBAgUEA//EAEMQAQABAwICBQUKDQUBAAAAAAABAgMEBQYHEQgSITFBCRNRYXEVGCIjdYGRobHSFDI3OEJWV3KSk5WzwSQzUrLCgv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcbK4ScRt6aL7s7X2rmapp/nKrXn7VduI69PLnHbVE+MMHW15Njcdd7Q92bTu1fBxsizn2I8fjKZor+aPN0fxAnn3u/Gn9n+pfzLX3z3u/Gn9n+pfzLX33UQBy797vxp/Z/qX8y199/DUeAfGDT8DIz83Y2oWMXGtVXr12u5a6tFFMTNVU/D7oiJl1Lah6Ye56Nr9H7cd2LsUZOo26dOxo8aqrtXKrl7LcXJ+YHMUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABS3k7NQqx+NOo4HW5U5ejXecemaLluY/ymlv7oDU1z0h8Oae6nTsqavZ1I/wA8gdGgAEaeUm3Ra6u1tmWb3O78ZqWTbjwp/wBu1M+3436FluXXSs3dRvPjtuPUse957Dxr/wCAYtUTziaLPwOceqaoqqj2g1YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArPycG18rI3luDeFyzVGHh4cYNu5MdlV25VFUxHspojn+9HpaX4NcE988T9TsUaRpl3E0mqr47Vcq3NOPbpjv5T+nV6Kaefb38o5y6R8KdiaJw42ThbV0G3VGPjxNVy7X2137s/jXKvXM/RHKPAGVAA1/wBIfe9nh9wg17cVVX+qjHnHwqYnlNWRc+BR9Ez1p9VMuVFVU1VTVVPOZnnM+lVXlCeI06vu/B4e6dkROFo8fhGdFFXOK8mun4NM/uUT9Nc+hKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADZXRv4bYfFXiRTtXO1PI02zOHdyfPWbcV1c6Or2cp7PFrVQvk/PzgaPknJ+2gG4KOhDtaJ+HvnWZj1YtuP8v02OhHsiJjz+8Nw1x49SizT9tMqqATho/Q14TYV2m5mZm5dT5d9u/m26KJ/l26Z+tsPbXAPg/t6ui5p+w9LruUd1eXFWVPP0/GzU2YA9bVu3atU2rVFNu3REU000xyimI7oiHsADDeNm9J4fcLtc3bRjRk3sGxzsWpnlFVyqqKKOfq51RM+qJZk+NvjbOlbx2lqW2NatVXcDUbE2b0Uzyqjn3VUz4TExEx64ByK1bPy9V1TL1TUL9V/MzL1d+/dq767ldU1VVT7ZmZflWnY6DmH7o3ar/EW/OF1/i7dGlRF3q+iapu8ufhz6vb39ncy/RehjwxxJpnUdU3DqUx3xORRapq/hp5/WDn68xEz3RzdQdu9HTgxoXVnG2LgZNyn9POruZUzPp5XKpp+iGeaPtLa2j8vcnbekYHLunHwrduY+eIByq25w637uOmK9C2Zr+o25jnF2xgXKrf8XLq/WzvRejHxq1SqnltCrDpq76svKtWoj2xNXP6nTQBBe3uhRv3K6tWubn2/plEx202PO5Fyn2x1aKfoqli/SU6PmPwe2jpOr07mu6vkZ2bONXROLFqiiIomrnHwpnwdHEqeUl/Jxtj5Xq/s1AhIAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQvk/PzgaPknJ+2hPShfJ+fnA0fJOT9tAOiYAAAAAA8V1U0UzVXVFNMd8zPKHkAAAAAABKnlJfycbY+V6v7NSq0qeUl/Jxtj5Xq/s1AhIAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQvk/ZiOkBTMzyj3JyftoT0/vh5eVh3Zu4eTex7k0zTNVq5NEzE98c48Ade9Z3NtvRbM3tZ3BpOm2o768vMt2qY+eqYa/wBe6RXBnR66qL++tPya6f0cKmvIifZVRTNP1uYF27cvXJuXbldyue+qqecz870B0J13plcKcGmqNPw9xarc5fB8ziUW6Jn1zXXEx9Etda304c6qqqnReH2Pap/Rry9Rm5M+uaaaKeXs5yjsBRevdMXizn0VUafb0LSInursYc3K4+e5VVH1Nea7x34v61M/h2/9ZiJ76ce5GPT9FuKYa3AfR1jXdb1mua9X1jUNQqmefPJya7v/AGmVxeTs3HuDV9h69pWqZORlafpeVapwK7tU1ebiumZrt0zPhHKmeXh1kM6Hpedres4Wj6Zj1ZGbm36LGPap7666piIj6ZdWOCuw8Dhvw40rauFRb85j2uvl3qY7b+RV23K5nvnt7I590REeAMzAAGseNnHDY/CmxTa1vLuZmq3aetZ03EiKr1Uf8qvCin11THPwiUo706ZvELUsq5TtnStJ0LE5/F9eicm9EeuqrlTz9lP0gvwct9e6QXGXWqqpyuIGr2YnwwqqcWI/lRSxjI4jcQsmZnI33ui9M9/X1e/V9tYOt6VPKS/k42x8r1f2akX17z3hXy6+69dq5enULs/+n4tU1vWtVtUWtT1fUM63RV1qKcjJruRTPpiKpnlIPngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAp/yfGwLOv8Qs7emo483MXQLcU4nP8Wcq52RPr6tHWnl4TVTPgvlqXojbPp2bwH0DGrx/M5mo2vdLL5xyqmu9ETTz9cUdSn5m2gGFccd82eHPC7Wt2V+bqv4tnq4luvuuX65im3Ty8e2ec+qJZqlXykeoXLPDjbWm01zFGTqtV2un0+btVRH/AHBEO49Z1PcOu5mt6zmXczUM27VeyL1yec11T9keiO6I7HzwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZZwd2zXvLijtzbVFublOdn26LsRHPlaietcn2RRFU/MxNTvk6tuRqXFjVdxXLUVW9G06aaKpj8W7enqx8/VpufWC+qKaaKYppiIpiOURHhDyACTvKT49VWxtqZUR2W9Su0TP71vn/5Vin/p9aFVq3R/yc+3Tzr0fUMfLnlHb1apmzP92J+YHOcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABWnQ24vcLOF/D/Ucbc2r5GNrWo583btNvBu3OVqmmKbcdammY7+vP/0ksB0l99hwS/WPN/pl/wC6e+w4JfrHm/0y/wDdc2gHSX32HBL9Y83+mX/usX4t9Izgru/hluPbVrcGVXe1DT7tmzFWm34jznV50ds09nwojtQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//9k=" alt="Midcentury">
+    <a href="index.html" class="nav-wordmark">Midcentury</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="datasets.html">Datasets</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="burger" aria-label="Menu" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="drawer" id="drawer">
+  <a href="datasets.html" onclick="closeMenu()">Datasets</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<main>
+  
+
+  <p class="large">The intelligence of a model is only as rich as the data it learns from. We believe the next leap in AI capability will not come from architecture alone — it will come from data that captures the full texture of how the world actually works.</p>
+
+  <p>Midcentury is a multimodal data research lab building the data layer for real-world AI. We develop and structure large-scale, high-fidelity datasets across voice, egocentric vision, gameplay, and robotics — and build the infrastructure to make this data directly usable in training and evaluation.</p>
+
+  <hr>
+  <span class="label">Our approach</span>
+
+  <p>Most training data is assembled opportunistically. We work the other way: we form a perspective on where model capabilities are heading, design data shapes that capture the behaviors those models will need, validate them through internal R&amp;D against real performance, and scale what works.</p>
+
+  <p>This research-driven process lets us build structured multimodal data aligned with real-world interaction and long-horizon tasks — data that is not just large, but shaped with intent.</p>
+
+  <hr>
+  <span class="label">To date</span>
+
+  <ul class="dash">
+    <li>Built one of the largest available egocentric industrial datasets — over 1,000,000 hours of first-person, real-world interaction data for embodied AI and world models.</li>
+    <li>Partnered with several AAA game studios to license high-quality 3D interaction and gameplay data at scale.</li>
+    <li>Developed a large-scale conversational dataset suite spanning underrepresented languages including Hindi, Arabic, and Finnish — 10,000+ hours with rich dialect metadata.</li>
+  </ul>
+
+  <p>Our data powers frontier voice systems, world models, and embodied agents. We work closely with many of the world's leading AI labs.</p>
+
+  <hr>
+  <span class="label">Who we are</span>
+
+  <p>We are researchers and operators who have built and scaled some of the most consequential AI work of the last decade. Our founding team brings together experience from <em>Stanford AI Lab</em>, <em>Scale AI</em>, and <em>DeepMind</em> — and we tightly integrate science and product development in everything we do.</p>
+
+  <p class="muted">Stanford AI Lab &nbsp;&middot;&nbsp; Scale AI &nbsp;&middot;&nbsp; DeepMind &nbsp;&middot;&nbsp; Voice Systems &nbsp;&middot;&nbsp; World Models &nbsp;&middot;&nbsp; Embodied Agents &nbsp;&middot;&nbsp; Egocentric Vision &nbsp;&middot;&nbsp; Long-Horizon RL</p>
+
+  <hr>
+  <span class="label" id="contact">Contact</span>
+
+  <p>If you are training frontier models and want access to data that actually reflects how the world works, we would like to hear from you.</p>
+
+  <p class="contact-row">
+    <a href="/cdn-cgi/l/email-protection#325a575e5e5d725f5b5651575c4647404b1c535b"><span class="__cf_email__" data-cfemail="91f9f4fdfdfed1fcf8f5f2f4ffe5e4e3e8bff0f8">[email&#160;protected]</span></a>
+    <span class="contact-location">San Francisco, CA</span>
+  </p>
+</main>
+
+<footer>
+  <span class="footer-left">© 2026 Midcentury</span>
+  <div class="footer-right">
+    <a href="#">Terms</a>
+    <a href="#">Privacy</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleMenu(btn) {
+  btn.classList.toggle('open
