@@ -21,49 +21,29 @@ html { font-size: 18px; scroll-behavior: smooth; }
 body { font-family: var(--serif); background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
 /* NAV */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
-  padding: 0 2.5rem;
-  height: 62px;
-  display: flex; align-items: center; justify-content: space-between;
-}
+nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2.5rem; height: 62px; display: flex; align-items: center; justify-content: space-between; }
 .nav-left { display: flex; align-items: center; gap: 0.5rem; }
 .nav-logo-img { width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
 .nav-wordmark { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
-.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-links a:hover { color: var(--ink); }
 
-/* HAMBURGER */
-.burger {
-  display: none; flex-direction: column; justify-content: center; gap: 5px;
-  width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 4px;
-}
-.burger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: all 0.2s; transform-origin: center; }
+/* BURGER */
+.burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 10px; -webkit-tap-highlight-color: transparent; }
+.burger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.22s, opacity 0.22s; transform-origin: center; pointer-events: none; }
 .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* MOBILE DRAWER */
-.drawer {
-  display: none; position: fixed;
-  top: 62px; left: 0; right: 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
-  padding: 1.5rem 2rem;
-  flex-direction: column; gap: 1.25rem;
-  z-index: 99;
-}
+/* DRAWER */
+.drawer { display: none; position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; }
 .drawer.open { display: flex; }
-.drawer a { font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
+.drawer a { font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding: 0.25rem 0; }
 .drawer a:hover { color: var(--ink); }
 
 /* MAIN */
 main { max-width: 680px; margin: 0 auto; padding: 5rem 2rem 8rem; }
-
-
 
 /* TYPE */
 p { font-size: 1.05rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.4rem; }
@@ -78,8 +58,6 @@ ul.dash li::before { content: '—'; position: absolute; left: 0; color: var(--f
 a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
 a:hover { text-decoration-color: var(--mid); }
 em { font-style: italic; }
-
-/* CONTACT */
 .contact-row { display: flex; align-items: baseline; gap: 2rem; flex-wrap: wrap; }
 .contact-location { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--faint); }
 
@@ -87,7 +65,7 @@ em { font-style: italic; }
 footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
 .footer-left { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); letter-spacing: 0.06em; }
 .footer-right { display: flex; gap: 1.5rem; }
-.footer-right a { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+.footer-right a { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); text-decoration: none; letter-spacing: 0.06em; }
 .footer-right a:hover { color: var(--ink); }
 
 /* MOBILE */
@@ -114,19 +92,17 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
     <li><a href="datasets.html">Datasets</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="burger" aria-label="Menu" onclick="toggleMenu(this)">
+  <button class="burger" id="burger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="drawer" id="drawer">
-  <a href="datasets.html" onclick="closeMenu()">Datasets</a>
-  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="datasets.html">Datasets</a>
+  <a href="contact.html">Contact</a>
 </div>
 
 <main>
-  
-
   <p class="large">The intelligence of a model is only as rich as the data it learns from. We believe the next leap in AI capability will not come from architecture alone — it will come from data that captures the full texture of how the world actually works.</p>
 
   <p>Midcentury is a multimodal data research lab building the data layer for real-world AI. We develop and structure large-scale, high-fidelity datasets across voice, egocentric vision, gameplay, and robotics — and build the infrastructure to make this data directly usable in training and evaluation.</p>
@@ -162,19 +138,36 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   <p>If you are training frontier models and want access to data that actually reflects how the world works, we would like to hear from you.</p>
 
   <p class="contact-row">
-    <a href="/cdn-cgi/l/email-protection#325a575e5e5d725f5b5651575c4647404b1c535b"><span class="__cf_email__" data-cfemail="91f9f4fdfdfed1fcf8f5f2f4ffe5e4e3e8bff0f8">[email&#160;protected]</span></a>
+    <a href="mailto:hello@midcentury.ai">hello@midcentury.ai</a>
     <span class="contact-location">San Francisco, CA</span>
   </p>
 </main>
 
 <footer>
-  <span class="footer-left">© 2026 Midcentury</span>
+  <span class="footer-left">&#169; 2026 Midcentury</span>
   <div class="footer-right">
     <a href="#">Terms</a>
     <a href="#">Privacy</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function toggleMenu(btn) {
-  btn.classList.toggle('open
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  burger.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    drawer.classList.toggle('open', !isOpen);
+    burger.classList.toggle('open', !isOpen);
+  });
+  var links = drawer.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function() {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+    });
+  }
+});
+</script>
+</body>
+</html>
