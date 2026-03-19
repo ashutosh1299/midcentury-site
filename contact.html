@@ -20,7 +20,6 @@
 html { font-size: 18px; scroll-behavior: smooth; }
 body { font-family: var(--serif); background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
-/* NAV */
 nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2.5rem; height: 62px; display: flex; align-items: center; justify-content: space-between; }
 .nav-left { display: flex; align-items: center; gap: 0.5rem; }
 .nav-logo-img { width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
@@ -28,20 +27,17 @@ nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bott
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
 .nav-links a:hover, .nav-links a.active { color: var(--ink); }
-.burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 4px; }
-.burger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: all 0.2s; transform-origin: center; }
+.burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 10px; -webkit-tap-highlight-color: transparent; }
+.burger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.22s, opacity 0.22s; transform-origin: center; pointer-events: none; }
 .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-.drawer { display: none; position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
+.drawer { display: none; position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; }
 .drawer.open { display: flex; }
-.drawer a { font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; }
+.drawer a { font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding: 0.25rem 0; }
 .drawer a:hover, .drawer a.active { color: var(--ink); }
 
-/* LAYOUT */
 main { max-width: 680px; margin: 0 auto; padding: 5rem 2rem 8rem; }
-
-/* TYPE */
 h1 { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; font-style: italic; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 2.5rem; }
 p { font-size: 1.05rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.4rem; }
 p:last-child { margin-bottom: 0; }
@@ -50,41 +46,18 @@ hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
 .label { font-family: var(--sans); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); display: block; margin-bottom: 0.75rem; }
 a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
 a:hover { text-decoration-color: var(--mid); }
-
-/* CONTACT ITEMS */
 .contact-block { margin-bottom: 2.5rem; }
 .contact-block:last-of-type { margin-bottom: 0; }
-
-.contact-email {
-  font-family: var(--serif);
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  font-style: italic;
-  color: var(--ink);
-  text-decoration: none;
-  text-decoration-color: var(--rule);
-  text-underline-offset: 4px;
-  transition: text-decoration-color 0.15s;
-  display: inline-block;
-  margin-bottom: 0.4rem;
-}
+.contact-email { font-family: var(--serif); font-size: clamp(1.3rem, 3vw, 1.8rem); font-style: italic; color: var(--ink); text-decoration: none; text-decoration-color: var(--rule); text-underline-offset: 4px; display: inline-block; margin-bottom: 0.4rem; }
 .contact-email:hover { text-decoration-color: var(--mid); }
+.contact-sub { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--faint); display: block; }
 
-.contact-sub {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  color: var(--faint);
-  display: block;
-}
-
-/* FOOTER */
 footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
 .footer-left { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); letter-spacing: 0.06em; }
 .footer-right { display: flex; gap: 1.5rem; }
-.footer-right a { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+.footer-right a { font-family: var(--sans); font-size: 0.68rem; color: var(--faint); text-decoration: none; letter-spacing: 0.06em; }
 .footer-right a:hover { color: var(--ink); }
 
-/* MOBILE */
 @media (max-width: 640px) {
   html { font-size: 16px; }
   nav { padding: 0 1.25rem; }
@@ -106,18 +79,17 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
     <li><a href="datasets.html">Datasets</a></li>
     <li><a href="contact.html" class="active">Contact</a></li>
   </ul>
-  <button class="burger" aria-label="Menu" onclick="toggleMenu(this)">
+  <button class="burger" id="burger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="drawer" id="drawer">
-  <a href="datasets.html" onclick="closeMenu()">Datasets</a>
-  <a href="contact.html" class="active" onclick="closeMenu()">Contact</a>
+  <a href="datasets.html">Datasets</a>
+  <a href="contact.html" class="active">Contact</a>
 </div>
 
 <main>
-
   <h1>Get in touch</h1>
 
   <p>We work directly with AI labs and research teams building frontier models. If you are looking for multimodal training data, evaluation frameworks, or want to discuss a custom data project, we would like to hear from you.</p>
@@ -126,13 +98,13 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
 
   <div class="contact-block">
     <span class="label">General enquiries</span>
-    <a href="/cdn-cgi/l/email-protection#bfd7dad3d3d0ffd2d6dbdcdad1cbcacdc691ded6" class="contact-email"><span class="__cf_email__" data-cfemail="0c64696060634c6165686f696278797e75226d65">[email&#160;protected]</span></a>
+    <a href="mailto:hello@midcentury.ai" class="contact-email">hello@midcentury.ai</a>
     <span class="contact-sub">For dataset access, partnerships, and general questions</span>
   </div>
 
   <div class="contact-block">
     <span class="label">Data access</span>
-    <a href="/cdn-cgi/l/email-protection#5135302530113c383532343f252423287f3038" class="contact-email"><span class="__cf_email__" data-cfemail="086c697c694865616c6b6d667c7d7a71266961">[email&#160;protected]</span></a>
+    <a href="mailto:data@midcentury.ai" class="contact-email">data@midcentury.ai</a>
     <span class="contact-sub">To request access to a specific dataset or discuss licensing</span>
   </div>
 
@@ -140,15 +112,30 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
 
   <span class="label">Location</span>
   <p class="muted">San Francisco, CA</p>
-
 </main>
 
 <footer>
-  <span class="footer-left">© 2026 Midcentury</span>
-  <div class="footer-right">
-    <a href="#">Terms</a>
-    <a href="#">Privacy</a>
-  </div>
+  <span class="footer-left">&#169; 2026 Midcentury</span>
+  <div class="footer-right"><a href="#">Terms</a><a href="#">Privacy</a></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  burger.addEventListener('click', function() {
+    var isOpen = drawer.classList.contains('open');
+    drawer.classList.toggle('open', !isOpen);
+    burger.classList.toggle('open', !isOpen);
+  });
+  var links = drawer.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function() {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+    });
+  }
+});
+</script>
+</body>
+</html>
