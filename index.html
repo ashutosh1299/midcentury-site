@@ -22,21 +22,17 @@ body { font-family: var(--serif); background: var(--bg); color: var(--ink); -web
 
 /* NAV */
 nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2.5rem; height: 62px; display: flex; align-items: center; justify-content: space-between; }
-.nav-left { display: flex; align-items: center; gap: 0.5rem; }
-.nav-logo-img { width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
+.nav-left { display: flex; align-items: center; gap: 0.6rem; }
+.nav-logo-img { width: 32px; height: 32px; object-fit: contain; filter: invert(1); mix-blend-mode: multiply; }
 .nav-wordmark { font-family: var(--sans); font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.15s; }
 .nav-links a:hover { color: var(--ink); }
-
-/* BURGER */
 .burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 10px; -webkit-tap-highlight-color: transparent; }
 .burger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.22s, opacity 0.22s; transform-origin: center; pointer-events: none; }
 .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-/* DRAWER */
 .drawer { position: fixed; top: 62px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0 2rem; flex-direction: column; gap: 1.5rem; z-index: 99; display: flex; max-height: 0; overflow: hidden; transition: max-height 0.25s ease, padding 0.25s ease; }
 .drawer.open { max-height: 300px; padding: 1.5rem 2rem; }
 .drawer a { font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding: 0.25rem 0; }
@@ -44,12 +40,9 @@ nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bott
 
 /* MAIN */
 main { max-width: 680px; margin: 0 auto; padding: 5rem 2rem 8rem; }
-
-/* TYPE */
 p { font-size: 1.05rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.4rem; }
 p:last-child { margin-bottom: 0; }
 p.large { font-size: 1.18rem; line-height: 1.75; }
-p.muted { color: var(--mid); font-style: italic; }
 hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
 .label { font-family: var(--sans); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); display: block; margin-bottom: 0.75rem; }
 ul.dash { list-style: none; padding: 0; margin-bottom: 1.4rem; }
@@ -58,8 +51,10 @@ ul.dash li::before { content: '—'; position: absolute; left: 0; color: var(--f
 a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
 a:hover { text-decoration-color: var(--mid); }
 em { font-style: italic; }
-.contact-row { display: flex; align-items: baseline; gap: 2rem; flex-wrap: wrap; }
-.contact-location { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--faint); }
+
+/* CONTACT BUTTON */
+.contact-btn { display: inline-block; margin-top: 0.25rem; font-family: var(--sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid rgba(30,28,24,0.3); padding: 0.65rem 1.4rem; border-radius: 3px; transition: border-color 0.2s, background 0.2s; }
+.contact-btn:hover { border-color: var(--ink); background: rgba(30,28,24,0.04); text-decoration: none; }
 
 /* FOOTER */
 footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
@@ -77,7 +72,6 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   main { padding: 3rem 1.25rem 6rem; }
   p.large { font-size: 1.08rem; }
   footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
-  .contact-row { flex-direction: column; gap: 0.5rem; }
 }
 </style>
 </head>
@@ -130,17 +124,12 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
 
   <p>We are researchers and operators who have built and scaled some of the most consequential AI work of the last decade. Our founding team brings together experience from <em>Stanford AI Lab</em>, <em>Scale AI</em>, and <em>DeepMind</em> — and we tightly integrate science and product development in everything we do.</p>
 
-  <p class="muted">Stanford AI Lab &nbsp;&middot;&nbsp; Scale AI &nbsp;&middot;&nbsp; DeepMind &nbsp;&middot;&nbsp; Voice Systems &nbsp;&middot;&nbsp; World Models &nbsp;&middot;&nbsp; Embodied Agents &nbsp;&middot;&nbsp; Egocentric Vision &nbsp;&middot;&nbsp; Long-Horizon RL</p>
-
   <hr>
-  <span class="label" id="contact">Contact</span>
+  <span class="label">Contact</span>
 
   <p>If you are training frontier models and want access to data that actually reflects how the world works, we would like to hear from you.</p>
 
-  <p class="contact-row">
-    <a href="/cdn-cgi/l/email-protection#8be3eee7e7e4cbe6e2efe8eee5fffef9f2a5eae2"><span class="__cf_email__" data-cfemail="4a222f2626250a27232e292f243e3f3833642b23">[email&#160;protected]</span></a>
-    <span class="contact-location">San Francisco, CA</span>
-  </p>
+  <a class="contact-btn" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#109;&#105;&#100;&#99;&#101;&#110;&#116;&#117;&#114;&#121;&#46;&#120;&#121;&#122;">Get in touch</a>
 </main>
 
 <footer>
@@ -151,7 +140,7 @@ footer { border-top: 1px solid var(--rule); padding: 1.75rem 2.5rem; display: fl
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   var burger = document.getElementById('burger');
   var drawer = document.getElementById('drawer');
@@ -160,4 +149,14 @@ document.addEventListener('DOMContentLoaded', function() {
     drawer.classList.toggle('open', !isOpen);
     burger.classList.toggle('open', !isOpen);
   });
-  var links = drawer
+  var links = drawer.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function() {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+    });
+  }
+});
+</script>
+</body>
+</html>
